@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Dra. Citlali Fuentes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF6B9E 0%, #6AC5FF 50%, #9D4EDD 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF4D88 0%, #6AC5FF 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .back-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .header-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .form-content {
+            padding: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #FF4D88;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E6F4FF;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: #F8FBFF;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #6AC5FF;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 197, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-whatsapp:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-icon {
+            font-size: 1.3rem;
+        }
+        
+        .info-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .feature-list {
+            background: #E6F4FF;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+        
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .feature-icon {
+            color: #6AC5FF;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .input-group {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        .input-group:nth-child(1) { animation-delay: 0.1s; }
+        .input-group:nth-child(2) { animation-delay: 0.2s; }
+        .input-group:nth-child(3) { animation-delay: 0.3s; }
+        .input-group:nth-child(4) { animation-delay: 0.4s; }
+        .btn-whatsapp { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                ←
+            </a>
+            <div class="header-icon">🦷</div>
+            <h1>Agendar Cita</h1>
+            <p class="subtitle">Tu sonrisa es nuestra prioridad</p>
+        </div>
+        
+        <!-- Formulario -->
+        <div class="form-content">
+            <div class="input-group">
+                <label class="required">Nombre completo</label>
+                <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required>
+            </div>
+
+            <div class="input-group">
+                <label class="required">Teléfono</label>
+                <input type="tel" id="telefono" placeholder="Tu número de teléfono" required>
+            </div>
+
+            <div class="input-group">
+                <label>Servicio de interés</label>
+                <select id="servicio">
+                    <option>Odontopediatría</option>
+                    <option>Limpieza dental</option>
+                    <option>Blanqueamiento</option>
+                    <option>Sellantes dentales</option>
+                    <option>Restauraciones</option>
+                    <option>Ortodoncia preventiva</option>
+                    <option>Otro servicio</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Mensaje adicional</label>
+                <textarea id="mensaje" placeholder="¿Alguna información adicional que quieras compartir con nosotros?"></textarea>
+            </div>
+
+            <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+                <span class="btn-icon">📱</span>
+                Enviar por WhatsApp
+            </button>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span> Respuesta inmediata por WhatsApp
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span> Confirmación de cita en menos de 24h
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✓</span> Ambiente familiar y seguro
+                </div>
+            </div>
+
+            <p class="info-text">
+                Al hacer clic se abrirá WhatsApp con tu información.<br>
+                ¡Te contactaremos inmediatamente!
+            </p>
+        </div>
+    </div>
+
+    <script>
+    function enviarWhatsApp() {
+        // Obtener valores
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const servicio = document.getElementById('servicio').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        // Validar
+        if (!nombre || !telefono) {
+            alert("🦷 Por favor completa tu nombre y teléfono para agendar tu cita");
+            return false;
+        }
+
+        // Crear mensaje
+        let texto = "¡Hola! Me gustaría agendar una cita:\n\n";
+        texto += "👤 Nombre: " + nombre + "\n";
+        texto += "📞 Teléfono: " + telefono + "\n";
+        texto += "🦷 Servicio de interés: " + servicio + "\n";
+        
+        if (mensaje) {
+            texto += "💬 Mensaje adicional: " + mensaje + "\n";
+        }
+        
+        texto += "\nPor favor contáctenme para confirmar mi cita. ¡Gracias!";
+
+        // Codificar para URL
+        const textoCodificado = encodeURIComponent(texto);
+        const urlWhatsApp = "https://wa.me/5219711161332?text=" + textoCodificado;
+
+        // Abrir WhatsApp
+        window.open(urlWhatsApp, '_blank');
+        
+        return false;
+    }
+
+    // Permitir Enter en los campos
+    document.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            enviarWhatsApp();
+        }
+    });
+    </script>
+</body>
+</html>
