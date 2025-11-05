@@ -145,6 +145,30 @@
             animation: none;
         }
         
+        /* Botón flotante del Buen Fin */
+        .buenfin-btn {
+            position: fixed;
+            bottom: 120px;
+            left: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+            color: white;
+            border-radius: 50px;
+            padding: 15px 20px;
+            box-shadow: 0 6px 12px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-soft 2s infinite, shake 3s infinite;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .buenfin-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(220, 38, 38, 0.6);
+            animation: none;
+        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #1E88E5, #D81B60);
             -webkit-background-clip: text;
@@ -342,6 +366,19 @@
         .skip-link:focus {
             top: 6px;
         }
+        
+        /* Estilos para la sección de promociones del Buen Fin */
+        .promo-badge {
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-left: 10px;
+            animation: pulse-soft 2s infinite;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-light-bg">
@@ -371,6 +408,15 @@
        aria-label="Contactar por WhatsApp">
         <i data-feather="message-circle" class="w-6 h-6 mr-2"></i>
         <span class="hidden md:inline font-medium">¿Dudas?</span>
+    </a>
+
+    <!-- Botón flotante del Buen Fin -->
+    <a href="https://www.facebook.com/profile.php?id=61580913203290" 
+       class="buenfin-btn flex items-center shadow-lg focus-ring" 
+       target="_blank"
+       aria-label="Ver promociones del Buen Fin">
+        <i data-feather="tag" class="w-6 h-6 mr-2"></i>
+        <span class="hidden md:inline font-medium">Promociones Buen Fin</span>
     </a>
 
     <!-- Navigation -->
@@ -492,6 +538,108 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Promociones del Buen Fin -->
+        <section class="py-16 bg-gradient-to-r from-red-50 to-pink-50 border-b-4 border-red-500">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 animate-fade-in">
+                    <h2 class="text-4xl font-bold text-red-600 mb-4 font-comfortaa">¡Promociones Especiales del Buen Fin!</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                        Aprovecha nuestras ofertas exclusivas por tiempo limitado. Cuidamos tu sonrisa y tu bolsillo.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Promoción 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-red-300 animate-slide-up hover-lift">
+                        <div class="text-center mb-6">
+                            <div class="bg-red-500 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="droplet" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-red-600 mb-2">Limpieza + Aplicación de Flúor</h3>
+                            <div class="promo-badge">15% OFF</div>
+                        </div>
+                        <p class="text-gray-700 mb-6 text-center font-semibold">
+                            ¡Kit de higiene bucal gratis!
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20promoci%C3%B3n%20Limpieza%20%2B%20Aplicaci%C3%B3n%20de%20Fl%C3%BAor%20del%20Buen%20Fin" 
+                           class="block w-full bg-red-500 text-white py-3 rounded-xl font-semibold text-center hover:bg-red-600 transition duration-300 btn-primary hover-lift focus-ring"
+                           target="_blank">
+                            Obtener promoción
+                        </a>
+                    </div>
+                    
+                    <!-- Promoción 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-red-300 animate-slide-up hover-lift" style="animation-delay: 0.1s;">
+                        <div class="text-center mb-6">
+                            <div class="bg-red-500 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="sun" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-red-600 mb-2">Aclaramiento Dental + Limpieza</h3>
+                            <div class="promo-badge">$2,000</div>
+                        </div>
+                        <p class="text-gray-700 mb-6 text-center font-semibold">
+                            ¡Kit dental gratis!
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20promoci%C3%B3n%20Aclaramiento%20Dental%20%2B%20Limpieza%20del%20Buen%20Fin" 
+                           class="block w-full bg-red-500 text-white py-3 rounded-xl font-semibold text-center hover:bg-red-600 transition duration-300 btn-primary hover-lift focus-ring"
+                           target="_blank">
+                            Obtener promoción
+                        </a>
+                    </div>
+                    
+                    <!-- Promoción 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-red-300 animate-slide-up hover-lift" style="animation-delay: 0.2s;">
+                        <div class="text-center mb-6">
+                            <div class="bg-red-500 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="user" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-red-600 mb-2">Limpieza Dental en Niños + Flúor</h3>
+                            <div class="promo-badge">30% OFF</div>
+                        </div>
+                        <p class="text-gray-700 mb-6 text-center font-semibold">
+                            ¡Kit dental gratis!
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20promoci%C3%B3n%20Limpieza%20Dental%20en%20Ni%C3%B1os%20%2B%20Fl%C3%BAor%20del%20Buen%20Fin" 
+                           class="block w-full bg-red-500 text-white py-3 rounded-xl font-semibold text-center hover:bg-red-600 transition duration-300 btn-primary hover-lift focus-ring"
+                           target="_blank">
+                            Obtener promoción
+                        </a>
+                    </div>
+                    
+                    <!-- Promoción 4 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-red-300 animate-slide-up hover-lift" style="animation-delay: 0.3s;">
+                        <div class="text-center mb-6">
+                            <div class="bg-red-500 text-white p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                <i data-feather="tool" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-red-600 mb-2">Brackets</h3>
+                            <div class="promo-badge">50% OFF</div>
+                        </div>
+                        <p class="text-gray-700 mb-6 text-center font-semibold">
+                            ¡50% de descuento en pago inicial!
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20promoci%C3%B3n%20Brackets%20del%20Buen%20Fin" 
+                           class="block w-full bg-red-500 text-white py-3 rounded-xl font-semibold text-center hover:bg-red-600 transition duration-300 btn-primary hover-lift focus-ring"
+                           target="_blank">
+                            Obtener promoción
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12 animate-fade-in">
+                    <p class="text-lg text-gray-700 mb-6">
+                        <span class="font-bold text-red-600">¡Atención!</span> Estas promociones son por tiempo limitado y sujetas a disponibilidad.
+                    </p>
+                    <a href="https://www.facebook.com/profile.php?id=61580913203290" 
+                       class="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-full font-semibold btn-primary hover:bg-red-700 transition duration-300 hover-lift focus-ring"
+                       target="_blank">
+                        <i data-feather="facebook" class="w-5 h-5 mr-2"></i>
+                        Ver más promociones en Facebook
+                    </a>
                 </div>
             </div>
         </section>
@@ -1006,7 +1154,7 @@
 
             // Mostrar notificación de bienvenida
             setTimeout(() => {
-                showNotification('¡Bienvenido! Estamos aquí para cuidar la sonrisa de tu familia.', 'success');
+                showNotification('¡Bienvenido! Aprovecha nuestras promociones especiales del Buen Fin.', 'success');
             }, 1000);
         });
 
