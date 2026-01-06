@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Cita Navideña - Dra. Citlali Fuentes</title>
+    <title>Agendar Cita - Dra. Citlali Fuentes</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Mountains+of+Christmas:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -15,101 +15,31 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #C62828 0%, #2E7D32 50%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #FF6B9E 0%, #6AC5FF 50%, #9D4EDD 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Snowflakes animation */
-        .snowflake {
-            position: absolute;
-            color: white;
-            font-size: 1.5em;
-            opacity: 0.8;
-            animation: fall linear infinite;
-            z-index: 1;
-        }
-        
-        @keyframes fall {
-            0% { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-        
-        /* Christmas lights border */
-        .christmas-lights {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            overflow: hidden;
-            z-index: 2;
-        }
-        
-        .light {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            top: -5px;
-            animation: lightBlink 1.5s infinite;
-        }
-        
-        @keyframes lightBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
         }
         
         .container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 4px #C62828, 0 0 0 8px #2E7D32;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             max-width: 500px;
             width: 100%;
-            border: 2px solid #FFD700;
-            position: relative;
-            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .header {
-            background: linear-gradient(135deg, #C62828 0%, #2E7D32 100%);
+            background: linear-gradient(135deg, #FF4D88 0%, #6AC5FF 100%);
             padding: 30px;
             text-align: center;
             color: white;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: "🎄🎅🎁";
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.1;
-            top: 10px;
-            left: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .header::after {
-            content: "✨🌟❄️";
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.1;
-            bottom: 10px;
-            right: 10px;
-            animation: float 3s ease-in-out infinite reverse;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
         
         .back-btn {
@@ -127,34 +57,22 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 3;
-            font-weight: bold;
         }
         
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1) rotate(-10deg);
+            transform: scale(1.1);
         }
         
         .header-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
-            animation: pulse 2s infinite;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
         
         h1 {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 5px;
-            font-family: 'Mountains of Christmas', cursive;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .subtitle {
@@ -163,21 +81,8 @@
             font-weight: 300;
         }
         
-        .christmas-badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #C62828, #FFD700);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            margin-left: 10px;
-            animation: pulse 2s infinite;
-        }
-        
         .form-content {
             padding: 30px;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232e7d32' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
         
         .input-group {
@@ -195,7 +100,7 @@
         
         .required::after {
             content: " *";
-            color: #C62828;
+            color: #FF4D88;
         }
         
         input, select, textarea {
@@ -210,24 +115,11 @@
         }
         
         input:focus, select:focus, textarea:focus {
-            border-color: #2E7D32;
+            border-color: #6AC5FF;
             background: white;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+            box-shadow: 0 0 0 3px rgba(106, 197, 255, 0.1);
             transform: translateY(-2px);
-        }
-        
-        /* Christmas styling for inputs */
-        input, select, textarea {
-            background-image: linear-gradient(to right, #C62828 0%, #2E7D32 100%);
-            background-size: 0% 3px;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            transition: background-size 0.3s ease;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            background-size: 100% 3px;
         }
         
         textarea {
@@ -251,30 +143,11 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-whatsapp::before {
-            content: "🎄";
-            position: absolute;
-            left: 20px;
-            opacity: 0.3;
-            font-size: 1.5rem;
-        }
-        
-        .btn-whatsapp::after {
-            content: "🎅";
-            position: absolute;
-            right: 20px;
-            opacity: 0.3;
-            font-size: 1.5rem;
         }
         
         .btn-whatsapp:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
-            background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
         }
         
         .btn-whatsapp:active {
@@ -294,42 +167,10 @@
         }
         
         .feature-list {
-            background: linear-gradient(135deg, rgba(198, 40, 40, 0.1) 0%, rgba(46, 125, 50, 0.1) 100%);
+            background: #E6F4FF;
             padding: 20px;
             border-radius: 12px;
             margin-top: 25px;
-            border: 2px solid #FFD700;
-            position: relative;
-        }
-        
-        .feature-list::before {
-            content: "🎁";
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            background: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #C62828;
-        }
-        
-        .feature-list::after {
-            content: "✨";
-            position: absolute;
-            bottom: -15px;
-            right: -15px;
-            background: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #2E7D32;
         }
         
         .feature-item {
@@ -345,46 +186,12 @@
         }
         
         .feature-icon {
-            color: #C62828;
+            color: #6AC5FF;
             margin-right: 10px;
             font-weight: bold;
-            font-size: 1.2rem;
         }
         
-        /* Christmas banner */
-        .christmas-banner {
-            background: linear-gradient(135deg, #C62828, #FFD700, #2E7D32);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 25px;
-            animation: colorShift 3s infinite alternate;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        @keyframes colorShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        
-        .christmas-banner::before {
-            content: "🎅🌟🎄";
-            position: absolute;
-            left: 10px;
-            opacity: 0.3;
-        }
-        
-        .christmas-banner::after {
-            content: "🎁✨❄️";
-            position: absolute;
-            right: 10px;
-            opacity: 0.3;
-        }
-        
-        /* Animations */
+        /* Animaciones */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -410,81 +217,22 @@
         .input-group:nth-child(3) { animation-delay: 0.3s; }
         .input-group:nth-child(4) { animation-delay: 0.4s; }
         .btn-whatsapp { animation-delay: 0.5s; }
-        
-        /* Christmas tree decoration */
-        .tree-decoration {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: #2E7D32;
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-            z-index: 1;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-        
-        .tree-decoration::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #FFD700;
-            border-radius: 50%;
-            top: 5px;
-            left: 15px;
-        }
-        
-        .tree-decoration::after {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #8B4513;
-            bottom: -15px;
-            left: 12.5px;
-        }
-        
-        /* Holly decoration */
-        .holly-decoration {
-            position: absolute;
-            color: #2E7D32;
-            font-size: 2rem;
-            z-index: 1;
-            opacity: 0.1;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
-    <!-- Christmas decorations -->
-    <div id="snowflakes"></div>
-    <div id="christmasLights" class="christmas-lights"></div>
-    
-    <!-- Christmas trees in background -->
-    <div class="tree-decoration" style="top: 10%; left: 5%; transform: scale(1.5);"></div>
-    <div class="tree-decoration" style="top: 20%; right: 10%; transform: scale(1.2);"></div>
-    <div class="holly-decoration" style="bottom: 15%; left: 8%;">🍃</div>
-    <div class="holly-decoration" style="top: 30%; right: 5%;">🍃</div>
-    
     <div class="container">
         <!-- Header -->
         <div class="header">
             <a href="index.html" class="back-btn">
                 ←
             </a>
-            <div class="header-icon">🎄🦷🎅</div>
-            <h1>Agendar Cita Navideña</h1>
-            <p class="subtitle">Tu sonrisa es nuestro mejor regalo esta Navidad</p>
-            <span class="christmas-badge">¡Navidad!</span>
+            <div class="header-icon">🦷</div>
+            <h1>Agendar Cita</h1>
+            <p class="subtitle">Tu sonrisa es nuestra prioridad</p>
         </div>
         
         <!-- Formulario -->
         <div class="form-content">
-            <!-- Christmas Banner -->
-            <div class="christmas-banner">
-                🎄 ¡Atención especial navideña para toda la familia! 🎅
-            </div>
-            
             <div class="input-group">
                 <label class="required">Nombre completo</label>
                 <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required>
@@ -498,19 +246,19 @@
             <div class="input-group">
                 <label>Servicio de interés</label>
                 <select id="servicio">
-                    <option>🎄 Odontopediatría</option>
-                    <option>🌟 Limpieza dental</option>
-                    <option>✨ Blanqueamiento</option>
-                    <option>🎁 Sellantes dentales</option>
-                    <option>❄️ Restauraciones</option>
-                    <option>🎅 Prótesis Dental</option>
-                    <option>🦷 Otro servicio</option>
+                    <option>Odontopediatría</option>
+                    <option>Limpieza dental</option>
+                    <option>Blanqueamiento</option>
+                    <option>Sellantes dentales</option>
+                    <option>Restauraciones</option>
+                    <option>Prótesis Dental</option>
+                    <option>Otro servicio</option>
                 </select>
             </div>
 
             <div class="input-group">
                 <label>Mensaje adicional</label>
-                <textarea id="mensaje" placeholder="¿Alguna información adicional que quieras compartir con nosotros? 🎄"></textarea>
+                <textarea id="mensaje" placeholder="¿Alguna información adicional que quieras compartir con nosotros?"></textarea>
             </div>
 
             <button class="btn-whatsapp" onclick="enviarWhatsApp()">
@@ -520,22 +268,19 @@
 
             <div class="feature-list">
                 <div class="feature-item">
-                    <span class="feature-icon">🎄</span> Respuesta inmediata por WhatsApp
+                    <span class="feature-icon">✓</span> Respuesta inmediata por WhatsApp
                 </div>
                 <div class="feature-item">
-                    <span class="feature-icon">🎅</span> Confirmación de cita en menos de 24h
+                    <span class="feature-icon">✓</span> Confirmación de cita en menos de 24h
                 </div>
                 <div class="feature-item">
-                    <span class="feature-icon">🎁</span> Ambiente familiar y seguro con decoración navideña
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">✨</span> Pequeño obsequio navideño para los niños
+                    <span class="feature-icon">✓</span> Ambiente familiar y seguro
                 </div>
             </div>
 
             <p class="info-text">
-                🎅 Al hacer clic se abrirá WhatsApp con tu información.<br>
-                ¡Te contactaremos inmediatamente para confirmar tu cita! 🎄
+                Al hacer clic se abrirá WhatsApp con tu información.<br>
+                ¡Te contactaremos inmediatamente!
             </p>
         </div>
     </div>
@@ -550,13 +295,12 @@
 
         // Validar
         if (!nombre || !telefono) {
-            alert("🎄 ¡Por favor completa tu nombre y teléfono para agendar tu cita navideña! 🎅");
+            alert("🦷 Por favor completa tu nombre y teléfono para agendar tu cita");
             return false;
         }
 
-        // Crear mensaje navideño
-        let texto = "🎄 ¡Feliz Navidad! 🎅\n\n";
-        texto += "Me gustaría agendar una cita:\n\n";
+        // Crear mensaje
+        let texto = "¡Hola! Me gustaría agendar una cita:\n\n";
         texto += "👤 Nombre: " + nombre + "\n";
         texto += "📞 Teléfono: " + telefono + "\n";
         texto += "🦷 Servicio de interés: " + servicio + "\n";
@@ -565,28 +309,14 @@
             texto += "💬 Mensaje adicional: " + mensaje + "\n";
         }
         
-        texto += "\nPor favor contáctenme para confirmar mi cita. ¡Gracias y Feliz Navidad! 🎄";
+        texto += "\nPor favor contáctenme para confirmar mi cita. ¡Gracias!";
 
         // Codificar para URL
         const textoCodificado = encodeURIComponent(texto);
         const urlWhatsApp = "https://wa.me/5219711161332?text=" + textoCodificado;
 
-        // Efecto visual navideño antes de abrir WhatsApp
-        const btn = document.querySelector('.btn-whatsapp');
-        btn.innerHTML = "🎄 Enviando... 🎅";
-        btn.style.background = "linear-gradient(135deg, #C62828 0%, #2E7D32 100%)";
-        
-        setTimeout(() => {
-            // Abrir WhatsApp
-            window.open(urlWhatsApp, '_blank');
-            
-            // Restaurar botón
-            btn.innerHTML = '<span class="btn-icon">📱</span> Enviar por WhatsApp';
-            btn.style.background = "linear-gradient(135deg, #25D366 0%, #128C7E 100%)";
-            
-            // Mostrar mensaje de confirmación
-            alert("🎄 ¡Mensaje listo! 🎅\n\nSe abrirá WhatsApp con tu solicitud de cita.");
-        }, 1000);
+        // Abrir WhatsApp
+        window.open(urlWhatsApp, '_blank');
         
         return false;
     }
@@ -596,78 +326,6 @@
         if (e.key === 'Enter') {
             enviarWhatsApp();
         }
-    });
-
-    // Crear copos de nieve
-    function createSnowflakes(count) {
-        const container = document.getElementById('snowflakes');
-        const emojis = ['❄️', '✨', '🌟', '💫'];
-        
-        for (let i = 0; i < count; i++) {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            snowflake.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            snowflake.style.animationDelay = Math.random() * 5 + 's';
-            snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
-            snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-            container.appendChild(snowflake);
-            
-            // Remover después de la animación
-            setTimeout(() => {
-                if (snowflake.parentNode) {
-                    snowflake.remove();
-                }
-            }, 10000);
-        }
-    }
-
-    // Crear luces navideñas
-    function createChristmasLights() {
-        const container = document.getElementById('christmasLights');
-        const colors = ['#C62828', '#2E7D32', '#FFD700', '#FFFFFF', '#1E88E5'];
-        const lightCount = 25;
-        const containerWidth = container.offsetWidth;
-        
-        for (let i = 0; i < lightCount; i++) {
-            const light = document.createElement('div');
-            light.classList.add('light');
-            light.style.left = (i * (containerWidth / lightCount)) + 'px';
-            light.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            light.style.animationDelay = (Math.random() * 1) + 's';
-            container.appendChild(light);
-        }
-    }
-
-    // Inicializar efectos navideños
-    document.addEventListener('DOMContentLoaded', function() {
-        createSnowflakes(25);
-        createChristmasLights();
-        
-        // Continuar creando copos de nieve
-        setInterval(() => {
-            createSnowflakes(5);
-        }, 800);
-        
-        // Mensaje navideño en consola
-        console.log("%c 🎄 ¡Feliz Navidad! 🎅", "color: #C62828; font-size: 18px; font-weight: bold;");
-        console.log("%c Que tengas una sonrisa brillante esta temporada festiva 🌟", "color: #2E7D32; font-size: 14px;");
-        
-        // Efecto de entrada navideño
-        const inputs = document.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.style.backgroundImage = 'linear-gradient(to right, #C62828 0%, #2E7D32 100%)';
-                this.style.backgroundSize = '100% 3px';
-            });
-            
-            input.addEventListener('blur', function() {
-                if (!this.value) {
-                    this.style.backgroundSize = '0% 3px';
-                }
-            });
-        });
     });
     </script>
 </body>
